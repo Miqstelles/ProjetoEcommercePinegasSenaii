@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+
+@{
+    var login = Context.Session.GetString("Cliente");
+    if (login != null)
+    {
+        if (login.Contains("Adm"))
+        {
+            <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="Cadastrar">Novo Produto</a>
+        }
+    }
+}
+
+@{
+    var login5 = Context.Session.GetString("Cliente");
+    if (login5 != null)
+    {
+        if (login.Contains("Adm"))
+        {
+            <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="PedidoAdm">Pedidos</a>
+        }
+    }
+
+}
+
+@{
+    var login6 = Context.Session.GetString("Cliente");
+    if (login6 != null)
+    {
+        if (login.Contains("Cliente"))
+        {
+            <a class="nav-link text-dark" asp-area="" asp-controller="Pedido" asp-action="PedidoCliente">Pedidos</a>
+        }
+    }
+
+}
+@{
+    var login4 = Context.Session.GetString("Cliente");
+    if (login4 != null)
+    {
+        <a class="btn btn-outline-info my-2 my-sm-0" asp-controller="Usuario" asp-action="Editar">
+            Editar Perfil
+        </a>
+    }
+}
+
+@{
+    var login2 = Context.Session.GetString("Cliente");
+    if (login2 == null)
+    {
+        <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Usuario" asp-action="Registrar">
+            <i class="bi bi-person-plus"></i> Registrar
+        </a>
+    }
+}
+
+@{
+    var login3 = Context.Session.GetString("Cliente");
+    if (login3 == null)
+    {
+        <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Usuario" asp-action="Login">
+            <i class="bi bi-person-plus"></i> Login
+        </a>
+    }
+}
+
+@{
+    var login7 = Context.Session.GetString("Cliente");
+    if (login7 != null)
+    {
+        <a class="btn btn-outline-danger my-2 my-sm-0" asp-controller="Usuario" asp-action="LogOut">
+            <i class="bi bi-person-plus"></i> Sair
+        </a>
+    }
+}

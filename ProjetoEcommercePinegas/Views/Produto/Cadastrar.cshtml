@@ -1,0 +1,64 @@
+﻿@model Produto;
+
+@{
+    ViewData["Title"] = "Cadastrar Produto";
+}
+
+<h1>Cadastrar Produtos</h1>
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar" asp-controller="Produto">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NomeProduto" class="control-label">Nome do Produto</label>
+                <input asp-for="NomeProduto" class="form-control" />
+                <span asp-validation-for="NomeProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantidade" class="control-label">Quantidade</label>
+                <input asp-for="Quantidade" class="form-control" type="number"/>
+                <span asp-validation-for="Quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label">Descrição</label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgURL" class="control-label">URL da Imagem</label>
+                <input asp-for="ImgURL" class="form-control" />
+                <span asp-validation-for="ImgURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label">Preço</label>
+                <input asp-for="Preco" class="form-control" type="number" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-md-4 offset-4 text-center">
+                <img widht="400px" height="400px" id="ImageURLPreview" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    <script>
+        $("#ImgURL").on("change", function () {
+            var output = document.getElementById("ImageURLPreview")
+            output.src = $(this).val();
+        })
+    </script>
+}

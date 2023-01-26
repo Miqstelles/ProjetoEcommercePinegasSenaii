@@ -1,0 +1,49 @@
+﻿@model Usuario;
+
+@{
+    ViewData["Title"] = "Comprar Produto";
+}
+
+<h1>Comprar Produtos</h1>
+
+<hr />
+<div class="row justify-content-center">
+
+    <div class="col-md-4">
+        <form asp-action="Editar" asp-controller="Usuario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.Email" class="control-label">Email</label>
+                <input asp-for="@Model.Email" class="form-control" readonly />
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Nome" class="control-label">Nome </label>
+                <input asp-for="@Model.Nome" class="form-control" />
+                <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Senha" class="control-label">Senha</label>
+                <input asp-for="@Model.Senha" class="form-control" type="password" />
+                <span asp-validation-for="@Model.Senha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn btn-outline-success" />
+                </div>
+            </div>
+            <div class="col-md-4 offset-4 text-center">
+                <img widht="400px" height="400px" id="ImageURLPreview" />
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
